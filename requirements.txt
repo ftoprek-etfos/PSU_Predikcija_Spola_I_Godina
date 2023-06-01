@@ -1,0 +1,11 @@
+pandas
+altair
+streamlit
+numpy
+matplotlib
+tqdm
+Pillow
+tensorflow
+keras
+opencv-python-headless
+mtcnn
