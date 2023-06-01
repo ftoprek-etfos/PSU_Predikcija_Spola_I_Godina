@@ -49,7 +49,7 @@ def test_image(image,Model):
 
   gender=int(np.round(pred_1[0][0]))
   
-  c2.header('Output')
+  c2.header('Izlaz')
   c2.subheader('Predviđene godine: '+age_dict[age])
   c2.subheader('Predviđen spol: '+ gender_dic[gender])
   c2.image(image)
@@ -58,14 +58,6 @@ def test_image(image,Model):
 def main():
   st.markdown('<h1 style="color:white;">Predikcija spola i dobi osobe na temelju slike</h1>', unsafe_allow_html=True)
   st.markdown("Jovana Paprić, Filip Toprek")
-  page_bg_img = '''
-  <style>
-  body {
-  background-image: url("https://images.unsplash.com/photo-1557683316-973673baf926");
-  background-size: cover;
-  }
-  </style>
-  '''
   hide_default_format = """
        <style>
        #MainMenu {visibility: hidden; }
@@ -73,14 +65,13 @@ def main():
        </style>
        """
   st.markdown(hide_default_format, unsafe_allow_html=True)
-  st.markdown(page_bg_img, unsafe_allow_html=True)
   upload= st.file_uploader('Priložite sliku za klasifikaciju', type=['png','jpg'])
   if upload is not None:
     im= Image.open(upload)
     img= np.asarray(im)
     img= preprocess_input(img)
     img= np.expand_dims(img, 0)
-    c1.header('Input Image')
+    c1.header('Ulaz')
     c1.image(im)
     c1.write(img.shape)
 
