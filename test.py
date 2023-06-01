@@ -9,7 +9,7 @@ import keras
 import os
 import numpy as np
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-st.set_page_config(page_title="Predikcija spola i godina")
+st.set_page_config(page_title="Predikcija spola i dobi")
 st.set_option('deprecation.showfileUploaderEncoding', False)
 c1, c2= st.columns(2)
 def extract_face(image, required_size=(128, 128)):
@@ -50,7 +50,7 @@ def test_image(image,Model):
   gender=int(np.round(pred_1[0][0]))
   
   c2.header('Izlaz')
-  c2.subheader('Predviđene godine: '+age_dict[age])
+  c2.subheader('Predviđena dob: '+age_dict[age])
   c2.subheader('Predviđen spol: '+ gender_dic[gender])
   c2.image(image)
   c2.write(img.shape)
