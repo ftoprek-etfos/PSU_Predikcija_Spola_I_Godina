@@ -14,6 +14,7 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 st.markdown('<h1 style="color:white;">Predikcija spola i dobi osobe na temelju slike</h1>', unsafe_allow_html=True)
 st.markdown('<h2 style="color:white;">Jovana Paprić, Filip Toprek</h2>', unsafe_allow_html=True)
 c1, c2= st.columns(2)
+option = st;
 def extract_face(image, required_size=(128, 128)):
   
   pixels = np.array(image.convert('RGB'))
