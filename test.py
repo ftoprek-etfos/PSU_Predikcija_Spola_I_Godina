@@ -46,12 +46,13 @@ def test_image(image,Model):
   gender_dic=['Muško','Žensko']
 
   age=(pred_1[1][0])
-
+  print(age)
+  age=(np.argmax(pred_1[1][0]))
   gender=int(np.round(pred_1[0][0]))
-  
+  print(age)
   c2.header('Izlaz')
   #c2.subheader('Predviđena dob: '+age_dict[age])
-  c2.subheader('Predviđena dob: '+int(age))
+  c2.subheader('Predviđena dob: '+int(age[0]))
   c2.subheader('Predviđen spol: '+ gender_dic[gender])
   c2.image(image)
   c2.write(img.shape)
