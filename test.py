@@ -42,15 +42,16 @@ def test_image(image,Model):
   img=img/255.0;
   pred_1=Model.predict(np.array([img]))
   
-  age_dict = {0:'1-2', 1:'3-9',2:'10-20',3:'21-27',4:'28-45',5:'46-65',6:'65+'}
+  #age_dict = {0:'1-2', 1:'3-9',2:'10-20',3:'21-27',4:'28-45',5:'46-65',6:'65+'}
   gender_dic=['Muško','Žensko']
 
-  age=(np.argmax(pred_1[1][0]))
+  age=(np.round(pred_1[1][0]))
 
   gender=int(np.round(pred_1[0][0]))
   
   c2.header('Izlaz')
-  c2.subheader('Predviđena dob: '+age_dict[age])
+  #c2.subheader('Predviđena dob: '+age_dict[age])
+  c2.subheader('Predviđena dob: '+age)
   c2.subheader('Predviđen spol: '+ gender_dic[gender])
   c2.image(image)
   c2.write(img.shape)
