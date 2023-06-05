@@ -23,9 +23,7 @@ def extract_face(image, required_size=(128, 128)):
   detector = MTCNN()
 
   results = detector.detect_faces(pixels)
-  if not results:
-    c2.subheader('Lice nije pronađeno')
-    return;
+  
   x1, y1, width, height = results[0]['box']
   x2, y2 = x1 + width, y1 + height
 
@@ -85,7 +83,10 @@ def main():
       model = tf.keras.models.load_model("model_recg_1.h5")
     else:
       model = tf.keras.models.load_model("model_recg_2.h5")
-    pixels = extract_face(im)
+    try:
+      pixels = extract_face(im)
+    except:
+      c2.subheader('Lice nije pronađeno')
     test_image(pixels,model)
 if __name__ == '__main__':
   main()
