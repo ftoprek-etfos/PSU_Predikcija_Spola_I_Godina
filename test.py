@@ -23,7 +23,9 @@ def extract_face(image, required_size=(128, 128)):
   detector = MTCNN()
 
   results = detector.detect_faces(pixels)
-
+  if !results:
+    c2.subheader('Lice nije pronađeno')
+    return;
   x1, y1, width, height = results[0]['box']
   x2, y2 = x1 + width, y1 + height
 
