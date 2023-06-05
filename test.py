@@ -85,8 +85,9 @@ def main():
       model = tf.keras.models.load_model("model_recg_2.h5")
     try:
       pixels = extract_face(im)
+      test_image(pixels,model)
     except:
       c2.subheader('Lice nije pronađeno')
-    test_image(pixels,model)
+    
 if __name__ == '__main__':
   main()
