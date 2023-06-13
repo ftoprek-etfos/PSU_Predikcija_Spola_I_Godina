@@ -112,7 +112,7 @@ model.compile(loss=['binary_crossentropy', 'categorical_crossentropy'], optimize
 checkpoint = ModelCheckpoint(filepath="/tmpchk/",monitor="val_age_out_accuracy",save_best_only=True,save_weights_only=False,verbose=1)
 
 tensorBoard = TensorBoard(log_dir="./logs", histogram_freq=0, write_graph=True, write_images=False, embeddings_freq=0, embeddings_layer_names=None, embeddings_metadata=None)
-# treniramo model sa splitom 80% test 10% validacija
+# treniramo model sa splitom 90% test 10% validacija
 history = model.fit(x=X, y=[y_gender, y_age], batch_size=10, epochs=20, validation_split=0.1, callbacks=[tensorBoard, checkpoint])
 
 # spremanje modela
