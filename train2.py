@@ -90,7 +90,7 @@ model = Model(inputs=[inputs], outputs=[output_1, output_2])
 
 model.compile(loss=['binary_crossentropy','mae'], optimizer='adam', metrics=['accuracy'])
 
-# treniramo model sa splitom 80% test 10% validacija
+# treniramo model sa splitom 90% test 10% validacija
 history = model.fit(x=X, y=[y_gender, y_age], batch_size=20, epochs=10, validation_split=0.1)
 
 # spremanje modela
